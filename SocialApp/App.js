@@ -1,10 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+
+import HomeButton from './HomeButton';
+import ChatButton from './ChatButton';
+import SettingButton from './SettingButton';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello !</Text>
+
+      <Text style={styles.font}> Insert Feed Here </Text>
+
+        <View style={ styles.bottomView} >
+                  <HomeButton />
+
+                  <ChatButton />
+
+                  <SettingButton />
+         </View>
+
+
     </View>
   );
 }
@@ -12,8 +27,29 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+  //  flexDirection: 'row',
+  //  backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: ( Platform.OS === 'ios' ) ? 20 : 0
+
+
   },
+
+  bottomView:{
+    width: '100%',
+    height: 50,
+    flexDirection: 'row',
+    backgroundColor: '#6495ed',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0
+
+
+  },
+
+  font: {
+    fontSize: 24
+  }
 });
