@@ -1,9 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 
 export default function App() {
   return (
-    <View style={{padding: 120}}>
+    <View style={{
+      paddingTop: 150,
+      paddingLeft:100,
+      paddingRight:20, 
+      }}>
       
       <Text 
       style ={{
@@ -20,47 +24,94 @@ export default function App() {
       
 
       <View style= {{
-      width: 200, 
-      height:80,
-     
-     
+      width: 300, 
+      height:70,
+      paddingTop:10,
+      paddingBottom:20,
+      paddingLeft:0,
+      paddingRight:100 
+      
+      
       }}>  
-      <Button title = "Food" 
-     
+      <Button 
+      title = "Food"
+      color= 'red'
+      onPress={() => Alert.alert('N/A at the moment')}
       />
       </View>
      
       <View style= {{
-      width: 200, 
-      height:80, 
-      
+      width: 300, 
+      height:70,
+      paddingTop:10,
+      paddingBottom:20,
+      paddingLeft:0,
+      paddingRight:100
       }}>  
-      <Button title = "Drinks" />
+      <Button 
+      title = "Drinks" 
+      color= 'orange'
+      onPress={() => Alert.alert('N/A at the moment')}
+      />
       </View>
      
       <View style= {{
-      width: 200, 
-      height:80, 
+     width: 300, 
+     height:70,
+     paddingTop:10,
+     paddingBottom:20,
+     paddingLeft:0,
+     paddingRight:100
       }}>  
-      <Button title = "Gym" />
+      <Button 
+      title = "Gym"
+      color= 'green'
+      onPress={() => Alert.alert('N/A at the moment')}
+      />
       </View>
+
       <View style= {{
-      width: 200, 
-      height:80, 
+     width: 300, 
+     height:70,
+     paddingTop:10,
+     paddingBottom:20,
+     paddingLeft:0,
+     paddingRight:100
       }}>  
-      <Button title = "Study" />
+      <Button 
+      title = "Study" 
+      color= 'purple'
+      onPress={() => Alert.alert('N/A at the moment')}
+      />
       </View>
+
       <View style= {{
-      width: 200, 
-      height:80, 
+      width: 300, 
+      height:70,
+      paddingTop:10,
+      paddingBottom:20,
+      paddingLeft:0,
+      paddingRight:100
       }}>  
-      <Button title = "Shop" />
+      <Button 
+      title = "Shop" 
+      color= '#00f5ff'
+      onPress={() => Alert.alert('N/A at the moment')}
+      />
       </View>
+
       <View style= {{
-      width: 200, 
-      height:80, 
+      width: 300, 
+      height:70,
+      paddingTop:10,
+      paddingBottom:20,
+      paddingLeft:0,
+      paddingRight:100
       }}>  
-      <Button title = "Other" />
+      <Button 
+      title = "Other"
+      onPress={() => Alert.alert('N/A at the moment')} 
+      />
       </View>
      
 
