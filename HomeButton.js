@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , TouchableOpacity} from 'react-native';
 
 export default class HomeButton extends Component {
   render() {
     return (
       <View >
-        <Text style={styles.Button}>HOME</Text>
+        <TouchableOpacity style = {styles.Button}>
+        <Text style ={styles.buttonText}>HOME</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -15,10 +17,12 @@ export default class HomeButton extends Component {
 
 const styles = StyleSheet.create({
   Button: {
-//    backgroundColor: '#00ffff',
-    fontSize: 24,
     justifyContent:'flex-end',
     width: 100,
+    padding: 15,
+  },
 
+  buttonText:{
+    textAlign : "center"
   },
 });

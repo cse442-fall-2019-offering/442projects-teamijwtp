@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , TouchableOpacity} from 'react-native';
 
 export default class SettingButton extends Component {
   render() {
     return (
       <View>
-        <Text style={styles.Button}>OPTION</Text>
+        <TouchableOpacity style = {styles.Button}>
+        <Text style ={styles.buttonText}>SETTING</Text>
+        </TouchableOpacity>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
   Button: {
-  //   backgroundColor: '#00bfff',
-     fontSize: 24,
      justifyContent:'flex-end',
      width: 100,
+     padding: 15,
   },
+
+  buttonText:{
+    textAlign : "center"
+},
 });
