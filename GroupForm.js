@@ -25,15 +25,17 @@ const eventRef = rootRef.child('events');
     }
 
     enter = () =>{
+        var user = firebase.auth().currentUser;
+       
              eventRef.push({
                  name:this.state.name,
                  location:this.state.location,
                  time:this.state.time,
-                 usersattending:"me"
+                usersattending:[user.email]
              })
 
 
-            this.props.navigation.navigate('List')
+            this.props.navigation.navigate('GroupPage')
     }
     
   
