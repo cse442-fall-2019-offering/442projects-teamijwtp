@@ -5,7 +5,7 @@ import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import  firebase from './firebase';
 
 
-//var name 
+
 const rootRef =firebase.database().ref();
 const eventRef = rootRef.child('events');
 class EventPage extends Component{
