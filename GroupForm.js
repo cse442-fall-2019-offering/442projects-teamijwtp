@@ -4,8 +4,6 @@ import  firebase from './firebase';
 import {Input,Item,Label} from 'native-base'
 
 
-
-
 const rootRef =firebase.database().ref();
 const eventRef = rootRef.child('events');
 
@@ -16,7 +14,7 @@ const eventRef = rootRef.child('events');
          super(props);
 
      }
-     
+
     state= {
         name: '',
         location:'',
@@ -35,8 +33,8 @@ const eventRef = rootRef.child('events');
 
             this.props.navigation.navigate('List')
     }
-    
-  
+
+
     render(){
         const {navigate} = this.props.navigation;
         return(
@@ -49,7 +47,7 @@ const eventRef = rootRef.child('events');
 
                 <Item style ={{marginBottom:20}}floatingLabel>
                     <Label>Enter event name</Label>
-                    <Input 
+                    <Input
                         value = {this.state.name}
                         onChangeText = {(name) => this.setState({name})}
                     />
@@ -58,7 +56,7 @@ const eventRef = rootRef.child('events');
 
                 <Item style ={{marginBottom:20}}floatingLabel>
                     <Label>Enter event location </Label>
-                    <Input 
+                    <Input
                         value = {this.state.location}
                         onChangeText = {(location) => this.setState({location})}
                     />
@@ -67,7 +65,7 @@ const eventRef = rootRef.child('events');
 
                 <Item style ={{marginBottom:20}}floatingLabel>
                     <Label>Enter event time </Label>
-                    <Input 
+                    <Input
                         value = {this.state.time}
                         onChangeText = {(time) => this.setState({time})}
                     />
@@ -81,11 +79,11 @@ const eventRef = rootRef.child('events');
                      <Text>Enter</Text>
 
                 </TouchableOpacity>
-                 
 
-                
+
+
             </View>
-             
+
 
         );
     }
@@ -97,21 +95,21 @@ const eventRef = rootRef.child('events');
 
 const styles = StyleSheet.create({
    container:{
-       
+
 
    },
    headingText:{
        fontSize:25,
        color:'white',
        alignSelf:'center'
-       
+
 
    },
    headerView:{
        backgroundColor:'blue',
        padding:10,
        marginBottom:20,
-       
+
 
    },
    input:{
@@ -123,8 +121,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#DDDDDD',
     padding: 10
    }
-   
-   
+
+
 });
 
 export default GroupForm

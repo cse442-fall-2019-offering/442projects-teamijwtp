@@ -6,7 +6,6 @@ import {Container,Input,Item,Button,Label,Form} from 'native-base'
 
 class Login extends Component{
 
-
     constructor(props){
       super(props)
 
@@ -17,7 +16,6 @@ class Login extends Component{
 
       })
     }
-
 
     signUpUser = (email,password) =>{
 

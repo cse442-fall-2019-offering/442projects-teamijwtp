@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Login from "./Login";
 import  GroupForm from "./GroupForm";
 import  GroupPage from "./GroupPage";
-
+import  EventPage from "./EventPage";
 
 
 
@@ -17,6 +17,9 @@ const NavStack = createStackNavigator({
     GroupForm:{
         screen:GroupForm
     },
+    EventPage:{
+        screen:EventPage
+    }
 
 })
 

@@ -1,82 +1,73 @@
-import {View,StyleSheet,Text,StatusBar} from 'react-native';
+import { View, StyleSheet, Text, StatusBar } from 'react-native';
 import React, { Component } from 'react';
-import {Content,Header,Input,Item,Button,Icon} from 'native-base'
+import { Content, Header, Input, Item, Button, Icon } from 'native-base'
 import { FlatList } from 'react-native-gesture-handler';
 
 
 
 
- class GroupPage extends Component{
-  
-    render(){
-        const {navigate} = this.props.navigation;
-        return(
-            <View style = {styles.container}>
+class GroupPage extends Component {
 
-                        <Header style = {styles.header}>
+  render() {
+    const { navigate } = this.props.navigation;
+    return (
+      <View style={styles.container}>
 
-                            <Content>
+        <Header style={styles.header}>
 
-                                <Item>
-                
-                                    <Input
-                                        placeholder = "Add group"
-                                    />
-                                    <Button 
-                                        onPress = {()=>{navigate('GroupForm')}}>
-                                        <Icon name = 'add'/>
-                                    </Button>
+          <Content>
 
-                                </Item>
+            <Item>
 
-                            </Content>
+              <Input
+                placeholder="Add group"
+              />
+              <Button
+                onPress={() => { navigate('GroupForm') }}>
+                <Icon name='add' />
+              </Button>
 
-                        </Header>
+            </Item>
+
+          </Content>
+
+        </Header>
 
 
-                        <FlatList
-                            data={[
-                                
-                        
-                                {key: 'These'},
-                                {key: 'are'},
-                                {key: 'place'},
-                                {key: 'holders'},
-                                {key: 'ignore'},
-                                {key: 'stop'},
-                                {key: 'reading'},
-                                {key: 'n'},
-                                {key: 'o'},
-                                {key: 'w'},
-                                {key: '.'},
-                                {key: 'These'},
-                                {key: 'are'},
-                                {key: 'place'},
-                                {key: 'holders'},
-                                {key: 'ignore'},
-                                {key: 'stop'},
-                                {key: 'reading'},
-                                {key: 'n'},
-                                {key: 'o'},
-                                {key: 'w'},
-                                {key: '.'},
-            
+        <FlatList
+          data={[
+            { key: 'These' },
+            { key: 'are' },
+            { key: 'place' },
+            { key: 'holders' },
+            { key: 'ignore' },
+            { key: 'stop' },
+            { key: 'reading' },
+            { key: 'n' },
+            { key: 'o' },
+            { key: 'w' },
+            { key: '.' },
+            { key: 'These' },
+            { key: 'are' },
+            { key: 'place' },
+            { key: 'holders' },
+            { key: 'ignore' },
+            { key: 'stop' },
+            { key: 'reading' },
           ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+
         />
+        <Button onPress={() => navigate('EventPage')}>
+        <Text> Tap </Text>
+        </Button>
 
- 
+
+      </View>
 
 
-
-
-                        
-
-            </View>
-             
-
-        );
-    }
+    );
+  }
 
 
 
@@ -84,27 +75,27 @@ import { FlatList } from 'react-native-gesture-handler';
 }
 
 const styles = StyleSheet.create({
-   container:{
-       flex:1,
-      
-       padding:10,
-    },
-    header:{
-        backgroundColor:'white',
-        marginTop:StatusBar.currentHeight
-    },
-    item: {
-        padding: 10,
-        fontSize: 18,
-        height: 44,
-      },
+  container: {
+    flex: 1,
 
- 
+    padding: 10,
+  },
+  header: {
+    backgroundColor: 'white',
+    marginTop: StatusBar.currentHeight
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
 
-    
-    
-    
-    
+
+
+
+
+
+
 });
 
 export default GroupPage
