@@ -6,7 +6,6 @@ import {Container,Input,Item,Button,Label,Form} from 'native-base'
 
 class Login extends Component{
 
-
     constructor(props){
       super(props)
 
@@ -22,6 +21,7 @@ class Login extends Component{
     signUpUser = (email,password) =>{
 
         try{
+
           firebase.auth().createUserWithEmailAndPassword(email,password)
 
         }
@@ -34,7 +34,7 @@ class Login extends Component{
     logInUser = (email,password) =>{
       try{
         firebase.auth().signInWithEmailAndPassword(email,password).then(function(user){
-          console.log(user)
+          
 
         })
       }
