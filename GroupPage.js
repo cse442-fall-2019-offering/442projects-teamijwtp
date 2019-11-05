@@ -114,14 +114,14 @@ var tasksRef = firebase.database().ref('events')
                        <FlatList
                         
           data={this.state.dataSource}
-          renderItem={({item}) => <TouchableHighlight style={styles.item} onPress= {()=>{
+          renderItem={({item}) => <TouchableOpacity style={styles.item} onPress= {()=>{
             
 
             navigate('EventPage', {item:item})
 
           }}>
           <Text style = {styles.item}>{item.name}</Text>
-          </TouchableHighlight>}
+          </TouchableOpacity >}
         />
 
 

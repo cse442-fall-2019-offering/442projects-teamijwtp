@@ -8,6 +8,7 @@ import  firebase from './firebase';
 
 const rootRef =firebase.database().ref();
 const eventRef = rootRef.child('events');
+
 class EventPage extends Component{
     
     constructor(props){
@@ -38,7 +39,7 @@ class EventPage extends Component{
 
        Going(key,usersAttendingg)  {
         var user = firebase.auth().currentUser;
-        //console.log(key+ usersAttendingg)
+        
 
         if(usersAttendingg){
         usersAttendingg.push(user.email)}
@@ -76,12 +77,22 @@ class EventPage extends Component{
         }
         
        }
+
+       EditFunction(key,usersList)  {
+        var user = firebase.auth().currentUser;
+        name = this.props.navigation.getParam('item')
+        if (usersList[0]==user.email){
+          this.props.navigation.navigate('EditPage', {name:name});
+        }
+
+        
+       }
     
 
     
     
     render(){
-        name = this.props.navigation.getParam('item')
+      name = this.props.navigation.getParam('item')
         console.log(name)
         return(
             
@@ -116,6 +127,13 @@ class EventPage extends Component{
          onPress ={() => this.DeleteFunction(name.key,name.usersAttending)}
        >
          <Text> Delete</Text>
+       </TouchableOpacity>
+
+       <TouchableOpacity
+         style={styles.button}
+        onPress ={() => this.EditFunction(name.key,name.usersAttending)}
+       >
+         <Text> Edit</Text>
        </TouchableOpacity>
 
         

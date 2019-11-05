@@ -4,6 +4,7 @@ import Login from "./Login";
 import  GroupForm from "./GroupForm";
 import  GroupPage from "./GroupPage";
 import  EventPage from "./EventPage"
+import  EditPage from "./EditPage"
 
 
 
@@ -20,6 +21,9 @@ const NavStack = createStackNavigator({
     },
     EventPage:{
         screen:EventPage
+    },
+    EditPage:{
+        screen:EditPage
     }
 
 })
