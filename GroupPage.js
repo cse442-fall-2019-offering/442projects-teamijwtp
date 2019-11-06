@@ -35,7 +35,8 @@ var tasksRef = firebase.database().ref('events')
               key: child.key,
               time: child.val().time,
               location:child.val().location,
-              usersAttending:child.val().usersattending
+              usersAttending:child.val().usersattending,
+              owner: child.val().owner
             });
           });
 
