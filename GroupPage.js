@@ -10,22 +10,22 @@ import  EventPage from './EventPage';
 var arr =[]
 var tasksRef = firebase.database().ref('events')
  export default class GroupPage extends Component{
-     
+
     constructor(props){
         super(props);
 
         this.state ={
             dataSource:[]
         }
-        
+
     }
-        
-       
+
+
     componentDidMount() {
         // start listening for firebase updates
         this.listenForTasks(this.tasksRef);
       }
-    
+
       listenForTasks() {
         tasksRef.on("value", dataSnapshot => {
           var tasks = [];
@@ -38,51 +38,13 @@ var tasksRef = firebase.database().ref('events')
               usersAttending:child.val().usersattending
             });
           });
-    
+
           this.setState({
             dataSource: tasks
           });
         });
       }
 
-                         
-            
-
-            
-              
-          
-
-          
-
-
-
-
-      
-        
-        
-          
-         
-         
-        
-             
-
-
-
-          
-         
-         
-        
-             
-
-
-
-
-
-
-        
-
-    
-    
     render(){
         const {navigate} = this.props.navigation;
         return(
@@ -93,11 +55,11 @@ var tasksRef = firebase.database().ref('events')
                             <Content>
 
                                 <Item>
-                
+
                                     <Input
                                         placeholder = "Add group"
                                     />
-                                    <Button 
+                                    <Button
                                         onPress = {()=>{navigate('GroupForm');var user= firebase.auth().currentUser;
                                         (user)}}>
                                         <Icon name = 'add'/>
@@ -112,10 +74,10 @@ var tasksRef = firebase.database().ref('events')
 
 
                        <FlatList
-                        
+
           data={this.state.dataSource}
           renderItem={({item}) => <TouchableHighlight style={styles.item} onPress= {()=>{
-            
+
 
             navigate('EventPage', {item:item})
 
@@ -125,24 +87,24 @@ var tasksRef = firebase.database().ref('events')
         />
 
 
-                        
-                        
-                        
-                        
-                        
-
-
-                     
-
- 
 
 
 
 
-                        
+
+
+
+
+
+
+
+
+
+
+
 
             </View>
-             
+
 
         );
     }
@@ -155,7 +117,7 @@ var tasksRef = firebase.database().ref('events')
 const styles = StyleSheet.create({
    container:{
        flex:1,
-      
+
        padding:10,
     },
     header:{
@@ -167,11 +129,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         height: 44,
       },
- 
 
-    
-    
-    
-    
+
+
+
+
+
 });
-

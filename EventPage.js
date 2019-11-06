@@ -9,15 +9,15 @@ import  firebase from './firebase';
 const rootRef =firebase.database().ref();
 const eventRef = rootRef.child('events');
 class EventPage extends Component{
-    
+
     constructor(props){
         super(props)
 
-        
+
     }
 
-  
-    
+
+
 
      componentDidMount(){
         //  name = {this.props.navigation.getParam('item') }
@@ -49,34 +49,44 @@ class EventPage extends Component{
         eventRef.child(key).child('usersattending').set(usersAttendingg)
 
        }
+
+       //key = key used to reference branch in database
+       //userAttendingg = list of users currently attending
        notGoing(key,usersAttendingg)  {
-        var user = firebase.auth().currentUser;
-       
+        var user = firebase.auth().currentUser; //creates a varubale that stores user currenlty logged on
+
+
         if(usersAttendingg){
+
+          //creates a new array called usersAttend that does not include user that pressed not going
         var usersAttend = usersAttendingg.filter(function(value){
             return value != user.email
         })
+
+
+        //sets the array in the databse to usersAttend
         eventRef.child(key).child('usersattending').set(usersAttend)
+        eventRef.child(key).child('owner').set(usersAttend[0])
     }
         //console.log(key+ usersAttend)
 
 
 
-        
-        
-        
+
+
+
 
        }
-    
-    
 
-    
-    
+
+
+
+
     render(){
         name = this.props.navigation.getParam('item')
         console.log(name)
         return(
-            
+
 
             <View style={styles.container}>
 
@@ -104,33 +114,33 @@ class EventPage extends Component{
        </TouchableOpacity>
 
 
-        
+
       </View>
-               
-               
-
-              
-                        
-                        
-                        
-                       
-
-                     
-                      
-                        
-
-
-                     
-
- 
 
 
 
 
-                        
 
-            
-             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         );
     }
@@ -151,7 +161,6 @@ const styles = StyleSheet.create({
         padding: 10
       },
   });
-  
+
 
 export default EventPage
-
