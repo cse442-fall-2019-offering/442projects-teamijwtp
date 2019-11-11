@@ -5,14 +5,11 @@ import  EventForm from "./EventForm";
 import  ListOfEvents from "./ListOfEvents";
 import  ListOfGroups from "./ListOfGroups";
 import  EventPage from "./EventPage"
-<<<<<<< Updated upstream
-=======
 import  EditPage from "./EditPage"
 import  CreateGroup from "./CreateGroup"
 import  GroupDetails from "./GroupDetails"
 import  NotInGroup from "./NotInGroup"
 import { createBottomTabNavigator } from 'react-navigation-tabs';
->>>>>>> Stashed changes
 
 const EventStack = createStackNavigator({
     Events:{
