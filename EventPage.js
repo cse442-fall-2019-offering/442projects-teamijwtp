@@ -70,9 +70,17 @@ class EventPage extends Component{
        
        DeleteFunction(key,usersList)  {
         var user = firebase.auth().currentUser;
-        if (usersList[0]==user.email){
+        var list= true;
+        eventRef.child(key).child('usersattending').once("value",snapshot=>{
+          if (!snapshot.exists()){
+              list=false;
+              eventRef.child(key).remove();
+          }
+        });
+        if (list!= false){
+          if(usersList[0]==user.email){
         eventRef.child(key).remove();
-        
+          }
         }
         
        }
