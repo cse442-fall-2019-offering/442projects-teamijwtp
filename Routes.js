@@ -1,6 +1,7 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Login from "./Login";
+import React, {Component} from 'react';
 import  EventForm from "./EventForm";
 import  ListOfEvents from "./ListOfEvents";
 import  ListOfGroups from "./ListOfGroups";
@@ -9,6 +10,7 @@ import  EditPage from "./EditPage"
 import  CreateGroup from "./CreateGroup"
 import  GroupDetails from "./GroupDetails"
 import  NotInGroup from "./NotInGroup"
+import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 const EventStack = createStackNavigator({
@@ -48,16 +50,47 @@ const GroupStack = createStackNavigator({
 export default createAppContainer(
     createBottomTabNavigator(
       {
-        Login:Loginstack,
-        Events: EventStack,
-        Groups:GroupStack,
+        Login:{screen:Loginstack,
+
+            navigationOptions:{  
+                
+                tabBarIcon:({tintColor})=>(  
+                    <Icon name='ios-log-in' color={tintColor} size={25}/>  
+                )  
+              }  
+            },  
+
+
+
+
+
+
+            Events:{screen:EventStack,
+
+                navigationOptions:{  
+                    
+                    tabBarIcon:({tintColor})=>(  
+                        <Icon name='ios-list' color={tintColor} size={25}/>  
+                    )  
+                  }  
+                },  
+                Groups:{screen:GroupStack,
+
+                    navigationOptions:{  
+                        
+                        tabBarIcon:({tintColor})=>(  
+                            <Icon name='ios-people' color={tintColor} size={25}/>  
+                        )  
+                      }  
+                    },  
       },
       {
-        initialRouteKey:Loginstack
-      }
-      
-    )
-  );;
+       
+        
+            /* Other configuration remains unchanged */
+          }
+        )
+      );
 
 /*const Routeconfigs = createStackNavigator({
     Login:{
