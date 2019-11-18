@@ -13,28 +13,31 @@ class CreateGroup extends Component{
         super(props);
 
     }
-    
+
    state= {
        name: '',
        key: '',
-      
-      
+       owner:''
+
+
+
    }
 
    enter = () =>{
        var user = firebase.auth().currentUser;
-      
+
             groupRef.push({
                 name:this.state.name,
                 key: this.state.key,
+                owner: [user.email],
                 members:[user.email]
             })
 
 
            this.props.navigation.navigate('Groups')
    }
-   
- 
+
+
    render(){
        const {navigate} = this.props.navigation;
        return(
@@ -47,7 +50,7 @@ class CreateGroup extends Component{
 
                <Item style ={{marginBottom:20}}floatingLabel>
                    <Label>Enter group name</Label>
-                   <Input 
+                   <Input
                        value = {this.state.name}
                        onChangeText = {(name) => this.setState({name})}
                    />
@@ -56,7 +59,7 @@ class CreateGroup extends Component{
 
                <Item style ={{marginBottom:20}}floatingLabel>
                    <Label>Enter group key</Label>
-                   <Input 
+                   <Input
                        value = {this.state.key}
                        onChangeText = {(key) => this.setState({key})}
                    />
@@ -70,11 +73,10 @@ class CreateGroup extends Component{
                     <Text>Enter</Text>
 
                </TouchableOpacity>
-                
 
-               
+
            </View>
-            
+
 
        );
    }
@@ -86,21 +88,21 @@ class CreateGroup extends Component{
 
 const styles = StyleSheet.create({
   container:{
-      
+
 
   },
   headingText:{
       fontSize:25,
       color:'white',
       alignSelf:'center'
-      
+
 
   },
   headerView:{
       backgroundColor:'blue',
       padding:10,
       marginBottom:20,
-      
+
 
   },
   input:{
@@ -112,8 +114,8 @@ const styles = StyleSheet.create({
    backgroundColor: '#DDDDDD',
    padding: 10
   }
-  
-  
+
+
 });
 
 export default CreateGroup

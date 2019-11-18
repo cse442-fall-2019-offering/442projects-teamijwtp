@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import {Content,Header,Input,Button,Icon, ListItem,Item} from 'native-base'
 import { FlatList, TouchableOpacity, TouchableHighlight } from 'react-native-gesture-handler';
 import  firebase from './firebase';
-import  EventPage from './EventPage';
 import CreateGroup from './CreateGroup';
 
 
@@ -11,22 +10,22 @@ import CreateGroup from './CreateGroup';
 var arr =[]
 var tasksRef = firebase.database().ref('groups')
  export default class ListOfEvents extends Component{
-     
+
     constructor(props){
         super(props);
 
         this.state ={
             dataSource:[]
         }
-        
+
     }
-        
-       
+
+
     componentDidMount() {
         // start listening for firebase updates
         this.listenForTasks(this.tasksRef);
       }
-    
+
       listenForTasks() {
         tasksRef.on("value", dataSnapshot => {
           var tasks = [];
@@ -34,20 +33,21 @@ var tasksRef = firebase.database().ref('groups')
             tasks.push({
               name: child.val().name,
               key: child.val().key,
+              owner: child.val().owner,
               members:child.val().members
               //time: child.val().time,
-            //  location:child.val().location,
+              //location:child.val().location,
               //usersAttending:child.val().usersattending
             });
           });
-    
+
           this.setState({
             dataSource: tasks
           });
         });
       }
 
-                         
+
       enter = (item) =>{
         var user = firebase.auth().currentUser;
         var arr = item.members
@@ -58,48 +58,14 @@ var tasksRef = firebase.database().ref('groups')
                 this.props.navigation.navigate('GroupDetails', {item:item})
             }
           }
-       
+
         if(bool==false){
-            
+
                 this.props.navigation.navigate('NotInGroup')
             }
     }
 
-            
-              
-          
 
-          
-
-
-
-
-      
-        
-        
-          
-         
-         
-        
-             
-
-
-
-          
-         
-         
-        
-             
-
-
-
-
-
-
-        
-
-    
-    
     render(){
         const {navigate} = this.props.navigation;
         return(
@@ -110,11 +76,11 @@ var tasksRef = firebase.database().ref('groups')
                             <Content>
 
                                 <Item>
-                
+
                                     <Input
                                         placeholder = "Add Group"
                                     />
-                                    <Button 
+                                    <Button
                                         onPress = {()=>{navigate('CreateGroup');var user= firebase.auth().currentUser;
                                         (user)}}>
                                         <Icon name = 'add'/>
@@ -129,13 +95,13 @@ var tasksRef = firebase.database().ref('groups')
 
 
                        <FlatList
-                        
+
           data={this.state.dataSource}
           renderItem={({item}) => <TouchableOpacity style={styles.item}
           onPress ={() => this.enter(item)}
-          
+
          /* onPress= {()=>{
-            
+
 
             navigate('GroupDetails', {item:item})
 
@@ -145,24 +111,10 @@ var tasksRef = firebase.database().ref('groups')
         />
 
 
-                        
-                        
-                        
-                        
-                        
 
-
-                     
-
- 
-
-
-
-
-                        
 
             </View>
-             
+
 
         );
     }
@@ -175,7 +127,7 @@ var tasksRef = firebase.database().ref('groups')
 const styles = StyleSheet.create({
    container:{
        flex:1,
-      
+
        padding:10,
     },
     header:{
@@ -187,11 +139,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         height: 44,
       },
- 
 
-    
-    
-    
-    
+
+
+
+
+
 });
-

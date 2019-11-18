@@ -10,72 +10,63 @@ const rootRef =firebase.database().ref();
 const eventRef = rootRef.child('events');
 
 class GroupDetails extends Component{
-    
+
     constructor(props){
         super(props)
 
-        
+
     }
 
-  
 
-      
-       
-    
-       
-      
-    
-
-    
-    
     render(){
       name = this.props.navigation.getParam('item')
-        
+
         return(
-            
+
 
             <View style={styles.container}>
 
 
                         <Text style={styles.item}>"Key: "{name.key}</Text>
                         <Text style={styles.item}>"Name: "{name.name}</Text>
-                        
-                        
+                        <Text style={styles.item}>"Owner": "{name.owner}"</Text>
 
 
 
-                        
-       
-       
 
 
-        
+
+
+
+
+
+
       </View>
-               
-               
-
-              
-                        
-                        
-                        
-                       
-
-                     
-                      
-                        
-
-
-                     
-
- 
 
 
 
 
-                        
 
-            
-             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         );
     }
@@ -96,7 +87,6 @@ const styles = StyleSheet.create({
         padding: 10
       },
   });
-  
+
 
 export default GroupDetails
-

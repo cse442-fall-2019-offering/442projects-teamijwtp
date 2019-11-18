@@ -90,23 +90,6 @@ export default class ListOfEvents extends Component{
           </TouchableOpacity>}
         />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </View>
 
 

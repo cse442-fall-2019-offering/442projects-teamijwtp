@@ -6,72 +6,61 @@ import  firebase from './firebase';
 
 
 class NotInGroup extends Component{
-    
+
     constructor(props){
         super(props)
 
-        
+
     }
-
-  
-
-      
-       
-    
-       
-      
-    
-
-    
     
     render(){
-     
-        
+
+
         return(
-            
+
 
             <View style={styles.container}>
 
 
                         <Text style={styles.item}>Sorry, Please ask group owner to join this group.</Text>
-                      
-                        
-                        
 
 
 
-                        
-       
-       
 
 
-        
+
+
+
+
+
+
+
       </View>
-               
-               
-
-              
-                        
-                        
-                        
-                       
-
-                     
-                      
-                        
-
-
-                     
-
- 
 
 
 
 
-                        
 
-            
-             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         );
     }
@@ -93,7 +82,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
       },
   });
-  
+
 
 export default NotInGroup
-
