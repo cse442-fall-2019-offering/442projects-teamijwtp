@@ -1,18 +1,9 @@
 {
   "devToolsPort": 19002,
-<<<<<<< HEAD
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
   "expoServerNgrokUrl": null,
   "packagerNgrokUrl": null,
   "ngrokPid": null
-=======
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 18252,
-  "expoServerNgrokUrl": "https://ph-qhp.anonymous.442projects-teamijwtp.exp.direct",
-  "packagerNgrokUrl": "https://packager.ph-qhp.anonymous.442projects-teamijwtp.exp.direct",
-  "ngrokPid": 5496
->>>>>>> Delete_Events_Story
 }

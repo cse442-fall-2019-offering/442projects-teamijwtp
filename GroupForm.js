@@ -37,7 +37,7 @@ const eventRef = rootRef.child('events');
              })
 
 
-            this.props.navigation.navigate('GroupPage')
+            this.props.navigation.navigate('Events')
     }
 
 
@@ -47,7 +47,7 @@ const eventRef = rootRef.child('events');
             <View style = {styles.container}>
                 <View style = {styles.headerView}>
                     <Text style = {styles.headingText}>
-                            Create New Group
+                            Create New Event
                     </Text>
                 </View>
 
