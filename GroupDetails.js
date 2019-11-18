@@ -7,7 +7,7 @@ import  firebase from './firebase';
 
 
 const rootRef =firebase.database().ref();
-const eventRef = rootRef.child('events');
+const groupRef = rootRef.child('groups');
 
 class GroupDetails extends Component{
     
@@ -18,7 +18,22 @@ class GroupDetails extends Component{
     }
 
   
+    DeleteFunction(key,members)  {
+        var user = firebase.auth().currentUser;
+        var list= true;
+        groupRef.child(key).child('members').once("value",snapshot=>{
+          if (!snapshot.exists()){
+              list=false;
+              groupRef.child(key).remove();
+          }
+        });
+        if (list!= false){
+          if(members[0]==user.email){
+        groupRef.child(key).remove();
+          }
+        }
 
+       }
       
        
     
@@ -30,18 +45,25 @@ class GroupDetails extends Component{
     
     render(){
       name = this.props.navigation.getParam('item')
-        
+        console.log(name)
         return(
             
 
             <View style={styles.container}>
 
 
-                        <Text style={styles.item}>"Key: "{name.key}</Text>
+                        <Text style={styles.item}>"Key: "{name.Key}</Text>
                         <Text style={styles.item}>"Name: "{name.name}</Text>
                         
                         
+            
+              <TouchableOpacity
+                style={styles.button}
 
+                onPress ={() => this.DeleteFunction(name.key,name.members)}
+              >
+                <Text> Delete</Text>
+              </TouchableOpacity>
 
 
                         
