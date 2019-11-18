@@ -78,6 +78,23 @@ class EventPage extends Component{
 
        }
 
+       DeleteFunction(key,usersList)  {
+        var user = firebase.auth().currentUser;
+        var list= true;
+        eventRef.child(key).child('usersattending').once("value",snapshot=>{
+          if (!snapshot.exists()){
+              list=false;
+              eventRef.child(key).remove();
+          }
+        });
+        if (list!= false){
+          if(usersList[0]==user.email){
+        eventRef.child(key).remove();
+          }
+        }
+
+       }
+
 
 
 
@@ -113,6 +130,12 @@ class EventPage extends Component{
          <Text> Not going </Text>
        </TouchableOpacity>
 
+       <TouchableOpacity
+         style={styles.button}
+         onPress ={() => this.DeleteFunction(name.key,name.usersAttending)}
+       >
+         <Text> Delete</Text>
+       </TouchableOpacity>
 
 
       </View>
