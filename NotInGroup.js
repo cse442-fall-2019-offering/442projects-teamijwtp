@@ -23,10 +23,15 @@ class NotInGroup extends Component{
 
 
                         <Text style={styles.item}>Sorry, Please ask group owner to join this group.</Text>
+                            
 
+                            <Item>
 
+                                <Button>
+                                    <Icon name = 'Join'/>
+                                </Button>
 
-
+                            </Item>
 
 
 
