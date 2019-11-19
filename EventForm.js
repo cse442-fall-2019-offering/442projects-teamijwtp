@@ -9,7 +9,7 @@ import {Input,Item,Label} from 'native-base'
 const rootRef =firebase.database().ref();
 const eventRef = rootRef.child('events');
 
- class GroupForm extends Component{
+ class EventForm extends Component{
 
 
      constructor(props){
@@ -131,4 +131,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default GroupForm
+export default EventForm
