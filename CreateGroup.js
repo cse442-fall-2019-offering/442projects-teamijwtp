@@ -16,7 +16,7 @@ class CreateGroup extends Component{
 
    state= {
        name: '',
-       key: '',
+       token: '',
        owner:''
 
 
@@ -28,9 +28,10 @@ class CreateGroup extends Component{
 
             groupRef.push({
                 name:this.state.name,
-                key: this.state.key,
+                token: this.state.token,
                 owner: [user.email],
-                members:[user.email]
+                members:[user.email],
+                pendingusers:[],
             })
 
 
@@ -60,8 +61,8 @@ class CreateGroup extends Component{
                <Item style ={{marginBottom:20}}floatingLabel>
                    <Label>Enter group key</Label>
                    <Input
-                       value = {this.state.key}
-                       onChangeText = {(key) => this.setState({key})}
+                       value = {this.state.token}
+                       onChangeText = {(token) => this.setState({token})}
                    />
 
                </Item>

@@ -7,7 +7,7 @@ import  firebase from './firebase';
 
 
 const rootRef =firebase.database().ref();
-const eventRef = rootRef.child('events');
+const eventRef = rootRef.child('groups');
 
 class GroupDetails extends Component{
 
@@ -27,7 +27,7 @@ class GroupDetails extends Component{
             <View style={styles.container}>
 
 
-                        <Text style={styles.item}>"Key: "{name.key}</Text>
+                        <Text style={styles.item}>"Key: "{name.token}</Text>
                         <Text style={styles.item}>"Name: "{name.name}</Text>
                         <Text style={styles.item}>"Owner": "{name.owner}"</Text>
 

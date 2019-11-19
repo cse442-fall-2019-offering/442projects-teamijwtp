@@ -32,10 +32,13 @@ var tasksRef = firebase.database().ref('groups')
           dataSnapshot.forEach(child => {
             tasks.push({
               name: child.val().name,
-              key: child.val().key,
+              key: child.key,
+              token: child.val().token,
               owner: child.val().owner,
-              members:child.val().members
-              //time: child.val().time,
+              members:child.val().members,
+              pendingusers: child.val().pendingusers
+
+              //time: child.val().time,c
               //location:child.val().location,
               //usersAttending:child.val().usersattending
             });
@@ -61,7 +64,7 @@ var tasksRef = firebase.database().ref('groups')
 
         if(bool==false){
 
-                this.props.navigation.navigate('NotInGroup')
+                this.props.navigation.navigate('NotInGroup', {item:item})
             }
     }
 

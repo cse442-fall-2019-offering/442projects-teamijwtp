@@ -4,7 +4,7 @@ import {Content,Header,Input,Button,Icon, ListItem,Item} from 'native-base'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import  firebase from './firebase';
 
-
+var tasksRef = firebase.database().ref('groups')
 class NotInGroup extends Component{
 
     constructor(props){
@@ -12,10 +12,25 @@ class NotInGroup extends Component{
 
 
     }
+
+    joinGroup(key,pendingusers)  {
+        var user = firebase.auth().currentUser;
+       
+        //pendingusers.push(user.email);
+        if(pendingusers){
+            pendingusers.push(user.email);}
+        else{
+            pendingusers =[]
+            pendingusers.push(user.email);
+        }
+        tasksRef.child(key).child('pendingusers').set(pendingusers)
+                
+               
+       }
     
     render(){
-
-
+        name = this.props.navigation.getParam('item');
+        user = firebase.auth().currentUser;
         return(
 
 
@@ -25,13 +40,12 @@ class NotInGroup extends Component{
                         <Text style={styles.item}>Sorry, Please ask group owner to join this group.</Text>
                             
 
-                            <Item>
-
-                                <Button>
-                                    <Icon name = 'Join'/>
-                                </Button>
-
-                            </Item>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress ={() => this.joinGroup(name.key,name.pendingusers) }
+                        >
+                        <Text> Join Group</Text>
+                         </TouchableOpacity>
 
 
 
@@ -79,12 +93,18 @@ const styles = StyleSheet.create({
     container: {
      flex: 1,
      justifyContent: 'center',
+     alignItems: 'center',
     },
     item: {
         alignItems: 'center',
         //backgroundColor: '#DDDDDD',
         padding: 10,
         justifyContent: 'center',
+      },
+      button: {
+        alignItems: 'center',
+        backgroundColor: '#DDDDDD',
+        padding: 10
       },
   });
 
