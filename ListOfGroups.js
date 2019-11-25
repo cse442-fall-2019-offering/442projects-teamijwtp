@@ -9,7 +9,7 @@ import CreateGroup from './CreateGroup';
 
 var arr =[]
 var tasksRef = firebase.database().ref('groups')
- export default class ListOfEvents extends Component{
+ export default class ListOfGroups extends Component{
 
     constructor(props){
         super(props);
@@ -32,8 +32,8 @@ var tasksRef = firebase.database().ref('groups')
           dataSnapshot.forEach(child => {
             tasks.push({
               name: child.val().name,
-              key: child.val().key,
-              owner: child.val().owner,
+              key: child.key,
+              Key: child.val().Key,
               members:child.val().members
               //time: child.val().time,
               //location:child.val().location,
