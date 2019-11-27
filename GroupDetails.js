@@ -14,8 +14,9 @@ class GroupDetails extends Component{
     constructor(props){
         super(props)
 
+    }
 
-
+    
     DeleteFunction(key,members)  {
         var user = firebase.auth().currentUser;
         var list= true;
@@ -30,6 +31,26 @@ class GroupDetails extends Component{
         groupRef.child(key).remove();
           }
         }
+
+       }
+
+       leaveFunction(key,members)  {
+        var user = firebase.auth().currentUser; //creates a varubale that stores user currenlty logged on
+
+
+        if(members){
+
+          //creates a new array called newMem that does not include user that pressed not going
+        var newMem = members.filter(function(value){
+            return value != user.email
+        })
+
+
+        //sets the array in the database to newMem
+        groupRef.child(key).child('members').set(newMem)
+        groupRef.child(key).child('owner').set(newMem[0])
+        }
+        
 
        }
 
@@ -61,7 +82,14 @@ class GroupDetails extends Component{
               >
                 <Text> Delete</Text>
               </TouchableOpacity>
+              
+              <TouchableOpacity
+                style={styles.button}
 
+                onPress ={() => this.leaveFunction(name.key,name.members)}
+              >
+                <Text>Leave</Text>
+              </TouchableOpacity>
 
 
 
