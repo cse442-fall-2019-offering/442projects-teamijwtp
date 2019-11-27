@@ -32,6 +32,7 @@ const eventRef = rootRef.child('events');
                  name:this.state.name,
                  location:this.state.location,
                  time:this.state.time,
+                 groupid:"public",
                  usersattending:[user.email],
                  owner: [user.email]
              })
@@ -47,7 +48,7 @@ const eventRef = rootRef.child('events');
             <View style = {styles.container}>
                 <View style = {styles.headerView}>
                     <Text style = {styles.headingText}>
-                            Create New Event
+                            Create New Public Event
                     </Text>
                 </View>
 
