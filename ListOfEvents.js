@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import {Content,Header,Input,Button,Icon, ListItem,Item} from 'native-base'
 import { FlatList, TouchableOpacity, TouchableHighlight } from 'react-native-gesture-handler';
 import  firebase from './firebase';
-import  EventPage from './EventPage';
-
+import EventTable from './components/EventTable';
 
 
 var arr =[]
@@ -106,7 +105,7 @@ export default class ListOfEvents extends Component{
 
 
 }
-}
+
 
 const styles = StyleSheet.create({
    container:{
