@@ -12,11 +12,9 @@ const groupRef = rootRef.child('groups');
 class GroupDetails extends Component{
 
     constructor(props){
-        super(props)
-
-
-
-    DeleteFunction(key,members)  {
+        super(props);
+    }
+    DeleteFunction(key,members){
         var user = firebase.auth().currentUser;
         var list= true;
         groupRef.child(key).child('members').once("value",snapshot=>{
@@ -99,7 +97,6 @@ class GroupDetails extends Component{
 
 
 }
-
 const styles = StyleSheet.create({
     container: {
      flex: 1,
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
-        padding: 10
+        padding: 10,
       },
   });
 
