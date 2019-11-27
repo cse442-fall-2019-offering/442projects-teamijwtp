@@ -36,7 +36,8 @@ export default class ListOfEvents extends Component{
               time: child.val().time,
               location:child.val().location,
               usersAttending:child.val().usersattending,
-              owner: child.val().owner
+              owner: child.val().owner,
+              groupid: child.val().groupid,
             });
           });
 
@@ -76,29 +77,35 @@ export default class ListOfEvents extends Component{
 
 
 
-                       <FlatList
+                        <FlatList
 
-          data={this.state.dataSource}
+                          data={this.state.dataSource}
+                          renderItem={({item}) => 
+                 
+                            <EventTable
+                              //add key here for private 
+                                groupid={"public"}
+                              // filter from database defaulting to public in this view
+                              thisid={item.groupid}
+                              k={item.key}
+                              eventDescription= {item.name} 
+                              eventLocation={item.location}
+                              eventTime={item.time}
+                              eventNames={item.usersAttending}
+                            />
+                          }
+                          />
 
-          renderItem={({item}) => <TouchableOpacity style={styles.item} onPress= {()=>{
+  </View>
 
 
-            navigate('EventPage', {item:item})
-
-          }}>
-          <Text style = {styles.item}>{item.name}</Text>
-          </TouchableOpacity>}
-        />
-
-            </View>
-
-
-        );
-    }
+);
+}
 
 
 
 
+}
 }
 
 const styles = StyleSheet.create({
