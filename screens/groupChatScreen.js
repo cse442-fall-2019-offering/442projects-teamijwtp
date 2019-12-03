@@ -96,6 +96,8 @@ class groupChatScreen extends Component{
         }
     }
 
+
+
      
     
 
@@ -121,13 +123,9 @@ class groupChatScreen extends Component{
   
 
 <TouchableOpacity 
-       onPress = {()=>{firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-      }).catch(function(error) {
-        // An error happened.
-      });;this.props.navigation.navigate('Login')}}>
+       onPress = {() => this.props.navigation.navigate('groupFunctions',{item:name})}>
 
-       <Icon name = 'ios-person' size={40}/>
+       <Icon name = 'ios-information-circle-outline' size={40}/>
  </TouchableOpacity>
  <Text style = {styles.textHeader}>{name.name+ " Chat"}</Text>
  <TouchableOpacity

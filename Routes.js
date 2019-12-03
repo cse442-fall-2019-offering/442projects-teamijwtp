@@ -4,6 +4,7 @@ import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import React from 'react';
 import  EventForm from "./screens/EventForm";
+import groupFunctions from "./screens/groupFunctions"
 import  ListOfEvents from "./screens/ListOfEvents";
 import  ListOfGroups from "./screens/ListOfGroups";
 import  groupEventForm from "./screens/groupEventForm";
@@ -89,6 +90,9 @@ const GroupStack = createStackNavigator({
     CreateGroup:{
         screen:CreateGroup
     },
+    groupFunctions:{
+        screen:  groupFunctions
+    },
     GroupDetails:{
         screen:GroupDetails
     },
@@ -151,4 +155,3 @@ export default createAppContainer(
           
         )
       );
-

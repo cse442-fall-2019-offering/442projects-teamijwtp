@@ -78,7 +78,7 @@ var groupRef = firebase.database().ref('groups')
 
                    >
 
-                      <Text allowFontScaling adjustsFontSizeToFit minimumFontScale={.5} style = {styles.text}>{"Event name: " + item.name+"\n" +"Number of members: " +item.members.length}</Text>
+                      <Text allowFontScaling adjustsFontSizeToFit minimumFontScale={.5} style = {styles.text}>{"Group name: " + item.name}</Text>
                    </TouchableOpacity >
             </View>
     }
