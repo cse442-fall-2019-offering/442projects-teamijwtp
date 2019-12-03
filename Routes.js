@@ -1,28 +1,4 @@
 import { createAppContainer } from 'react-navigation';
-<<<<<<< HEAD
-import { createStackNavigator } from 'react-navigation-stack';
-import Login from "./Login";
-import  GroupForm from "./GroupForm";
-import  GroupPage from "./GroupPage";
-
-
-
-
-const NavStack = createStackNavigator({
-    Login:{
-        screen:Login
-    },
-    GroupPage:{
-        screen:GroupPage
-    },
-    GroupForm:{
-        screen:GroupForm
-    },
-
-})
-
-export default Routes = createAppContainer(NavStack);
-=======
 import { createStackNavigator} from 'react-navigation-stack';
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
@@ -45,7 +21,7 @@ import  PendingRequest from "./screens/PendingRequest"
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-   
+
 
 
 
@@ -62,35 +38,35 @@ const EventStack = createStackNavigator({
     EditPage:{
         screen:EditPage ///needs updating
     },
-    
-    
+
+
 })
 const Loginstack = createStackNavigator({
-   
-   
+
+
     Login:{
         screen:Login,
-        
+
     },
     SignUp:{
         screen:SignUp
     },
-    
-   
-    
-    
-    
-   
+
+
+
+
+
+
 })
 
 Loginstack.navigationOptions = ({ navigation }) => {
     let tabBarVisible = false;
-    
+
     if (navigation.state.index > 0) {
       tabBarVisible = false;
     }
-    
-  
+
+
     return {
       tabBarVisible,
     };
@@ -132,23 +108,23 @@ const GroupStack = createStackNavigator({
     PendingUser:{
         screen:PendingUser
     },
-    
+
 })
 export default createAppContainer(
-   
+
     createBottomTabNavigator(
       {
         Login:{screen:Loginstack,
 
-            navigationOptions:{  
-                
-                tabBarIcon:({tintColor})=>(  
+            navigationOptions:{
+
+                tabBarIcon:({tintColor})=>(
                     <Icon name='ios-log-in' color={tintColor} size={25}
-                    />  
-                )  
-              }  
-            },  
-            
+                    />
+                )
+              }
+            },
+
 
 
 
@@ -157,26 +133,25 @@ export default createAppContainer(
 
             Events:{screen:EventStack,
 
-                navigationOptions:{  
-                    
-                    tabBarIcon:({tintColor})=>(  
-                        <Icon name='ios-list' color={tintColor} size={25}/>  
-                    )  
-                  }  
-                },  
+                navigationOptions:{
+
+                    tabBarIcon:({tintColor})=>(
+                        <Icon name='ios-list' color={tintColor} size={25}/>
+                    )
+                  }
+                },
                 Groups:{screen:GroupStack,
 
-                    navigationOptions:{  
-                        
-                        tabBarIcon:({tintColor})=>(  
-                            <Icon name='ios-people' color={tintColor} size={25}/>  
-                        )  
-                      }  
-                    }, 
-                     
+                    navigationOptions:{
+
+                        tabBarIcon:({tintColor})=>(
+                            <Icon name='ios-people' color={tintColor} size={25}/>
+                        )
+                      }
+                    },
+
       },
-     
-          
+
+
         )
       );
->>>>>>> develop3
